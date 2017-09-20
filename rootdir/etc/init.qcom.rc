@@ -992,7 +992,7 @@ service amp_unload /system/bin/amploader -u
     disabled
     oneshot
 
-service wpa_supplicant /system/bin/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
@@ -1025,16 +1025,6 @@ service wifi_fccutild /system/bin/wifi_fccutild
     group system inet net_admin
     socket wififccutild_server dgram 0660 system system
     disabled
-    oneshot
-
-service cnss_diag /system/bin/cnss_diag -q -f
-    class main
-    user root
-    group root
-    #ifdef VENDOR_EDIT
-    # cnss diag cause power consumption bigger sometimes, so disable it until solve it
-    disabled
-    #endif
     oneshot
 
 service cnss-daemon /system/bin/cnss-daemon -n -l
