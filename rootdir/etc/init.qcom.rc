@@ -331,9 +331,6 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # bond0 used by FST Manager
-    chown wifi wifi /sys/class/net/bond0/bonding/queue_id
-
     # change this when HAL3 is working
     setprop persist.camera.HAL3.enabled 0
 
@@ -349,6 +346,7 @@ on boot
     chown system system /sys/module/cnss_common/parameters/bdwlan_file
 
     # Wifi firmware reload path
+    insmod /system/lib/modules/wlan.ko
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 # msm specific files that need to be created on /data
@@ -1047,16 +1045,6 @@ service wifi_fccutild /system/bin/wifi_fccutild
 on property:wifi.fccutild.load.qcacld=true
     insmod /system/lib/modules/qca_cld/qca_cld_wlan.ko con_mode=5
 
-service cnss_diag /system/bin/cnss_diag -q -f
-    class main
-    user root
-    group root
-    #ifdef VENDOR_EDIT
-    # cnss diag cause power consumption bigger sometimes, so disable it until solve it
-    disabled
-    #endif
-    oneshot
-
 service cnss-daemon /system/bin/cnss-daemon -n -l
     class late_start
     user system
@@ -1082,10 +1070,6 @@ service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     group system
     disabled
     oneshot
-
-on property:crypto.driver.load=1
-    insmod /system/lib/modules/qce.ko
-    insmod /system/lib/modules/qcedev.ko
 
 service drmdiag /system/bin/drmdiagapp
     class late_start
