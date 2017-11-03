@@ -52,6 +52,9 @@ vendor/lib/libchromatix_ov8865_snapshot.so
 vendor/lib/libchromatix_s5k2m8sx_hfr_120.so
 vendor/lib/libchromatix_s5k2m8sx_cpp_liveshot.so
 vendor/lib/libchromatix_ov8865_hfr_120.so
+vendor/etc/hals.conf
+etc/sensors/hals.conf
+etc/sensors/sensor_def_qcomdev.conf
 etc/acdbdata/MTP/MTP_General_cal.acdb
 etc/acdbdata/MTP/MTP_Handset_cal.acdb
 etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
