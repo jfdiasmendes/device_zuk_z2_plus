@@ -1,2 +1,2 @@
-# Hdmi
-persist.vendor.audio.speaker.prot.enable=true
+# Audio
+persist.speaker.prot.enable=true
