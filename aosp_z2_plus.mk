@@ -29,6 +29,10 @@ TARGET_ARCH := arm64
 # Inherit some common AOSP-OMS stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
+# Gcamera
+PRODUCT_PACKAGES += \
+    GoogleCamera
+
 PRODUCT_NAME := aosp_z2_plus
 PRODUCT_DEVICE := z2_plus
 PRODUCT_MANUFACTURER := ZUK
