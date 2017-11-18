@@ -26,6 +26,9 @@ TARGET_BOOT_ANIMATION_RES := 1080
 #Gapps
 TARGET_ARCH := arm64
 
+#Gapps DPI
+TARGET_DENSITY := xxhdpi
+
 # Inherit some common AOSP-OMS stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
